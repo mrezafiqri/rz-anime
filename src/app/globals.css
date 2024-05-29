@@ -7,4 +7,20 @@
     min-height: 44px;
     min-width: 44px;
   }
+
+  .jbt-left-group {
+    @apply w-full py-6 px-11 grid gap-2 justify-center items-center text-color-primary sm:w-3/4 md:gap-4 md:pl-16 lg:w-2/3 xl:w-2/5;
+  }
+
+  .jbt-card-synopsis {
+    @apply bg-gradient-to-r from-color-white/10 to-color-black/20 to-60% backdrop-blur-lg -ml-16 pl-16 py-2 pr-4 rounded-r-xl border border-color-white/10 border-l-0 italic md:rounded-r-3xl;
+  }
+
+  .jbt-text-group-genres {
+    @apply py-2 px-3 bg-gradient-to-r from-color-white/10 to-color-black/20 backdrop-blur-lg rounded-lg border border-color-white/10 text-xs md:text-base;
+  }
+
+  .jbt-link-group {
+    @apply flex justify-center items-center gap-1 w-full font-semibold py-2 px-2  bg-gradient-to-r from-color-white/10 to-color-black/20 backdrop-blur-lg rounded-lg border border-color-white/10 text-xs sm:px-3 sm:text-sm md:text-xl;
+  }
 }
