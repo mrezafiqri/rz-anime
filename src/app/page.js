@@ -6,6 +6,7 @@ export default function Home() {
       <section>
         <Jumbotroon />
       </section>
+      <div className="pb-96"></div>
     </main>
   );
 }

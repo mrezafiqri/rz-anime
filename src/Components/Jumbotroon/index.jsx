@@ -23,7 +23,7 @@ const Jumbotroon = () => {
         }
         return prevIndex + 1;
       });
-    }, 5000);
+    }, 8000);
 
     return () => clearInterval(intervalMalId);
   }, [mal_id]);
@@ -45,13 +45,13 @@ const Jumbotroon = () => {
   };
 
   return (
-    <article className="relative rounded-3xl overflow-hidden mt-2">
+    <article className="relative rounded-3xl overflow-hidden my-4">
       <Image
         src={slides[currentIndex].image}
         alt={`Background ${slides[currentIndex].title}`}
         className="h-[60vh] w-full object-cover object-center md:h-[80vh] transition-all duration-500 bg-color-dark"
       />
-      <div className="absolute top-0 left-0 right-0 z-[1] bg-gradient-to-r from-color-black to-color-dark/0 to-80% w-full h-full flex justify-between items-center text-color-secondary group">
+      <div className="absolute top-0 left-0 right-0 z-[1] bg-gradient-to-r from-color-black  to-color-dark/0 to-100% w-full h-full flex justify-between items-center text-color-secondary group">
         <SideBarLeft slides={slides} currentIndex={currentIndex} />
         <ArrowHandler prevSlide={prevSlide} nextSlide={nextSlide} />
         <DotHandler
