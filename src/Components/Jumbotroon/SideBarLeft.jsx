@@ -39,7 +39,8 @@ const SideBarLeft = ({ slides, currentIndex }) => {
           <p>Read more</p>
         </Link>
         <Link
-          href={"/"}
+          href={slides[currentIndex].youtube_url}
+          target="_blank"
           className="jbt-link-group bg-color-red hover:bg-color-red/50 transition-all duration-75"
         >
           <YoutubeLogo className="text-sm md:text-2xl" weight="bold" />

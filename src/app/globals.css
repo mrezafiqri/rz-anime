@@ -24,3 +24,9 @@
     @apply flex justify-center items-center gap-1 w-full font-semibold py-2 px-2 backdrop-blur-lg rounded-lg border border-color-white/10 text-xs sm:px-3 sm:text-sm md:text-xl bg-gradient-to-r from-color-white/10 to-color-black/20;
   }
 }
+
+@layer utilities {
+  .bg-blur {
+    @apply bg-color-accent/80 backdrop-blur-lg border border-color-white/10 bg-gradient-to-r from-color-white/10 to-color-black/20;
+  }
+}
