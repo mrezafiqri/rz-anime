@@ -19,13 +19,15 @@ const CardAnime = ({ anime }) => {
           <p>Detail</p>
         </div>
       </header>
-      <h1 className="text-color-white font-semibold text-xl line-clamp-1 leading-none group-hover:text-color-accent transition-all duration-300">
+      <h1 className="text-color-white font-semibold text-lg line-clamp-1 leading-none group-hover:text-color-accent transition-all duration-300">
         {anime.title}
       </h1>
-      <span className="flex items-center gap-1 text-color-secondary leading-none text-sm">
-        <Star weight="fill" />
-        <p>{anime.score}</p>
-      </span>
+      {anime.score ? (
+        <span className="flex items-center gap-1 text-color-secondary leading-none text-sm">
+          <Star weight="fill" />
+          <p>{anime.score}</p>
+        </span>
+      ) : null}
     </Link>
   );
 };

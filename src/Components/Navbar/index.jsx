@@ -5,13 +5,13 @@ import InputSearch from "./InputSearch";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const [colorChange, setColorChange] = useState(false);
+  const [colorChange, setColorChange] = useState(true);
 
   const changeColorNavbar = () => {
-    if (window.scrollY >= 20) {
-      setColorChange(true);
-    } else {
+    if (window.scrollY >= 50) {
       setColorChange(false);
+    } else {
+      setColorChange(true);
     }
   };
 
@@ -23,9 +23,9 @@ const Navbar = () => {
     <header
       className={`${
         colorChange
-          ? "bg-color-black/80 backdrop-blur-xl border-b border-b-color-black"
-          : "bg-color-black/0"
-      }  transition-all duration-150 sticky top-0 z-[1030]`}
+          ? "bg-color-black/0"
+          : "bg-color-black/80 backdrop-blur-xl border-b border-b-color-black"
+      }  transition-all duration-200 sticky top-0 z-[1030]`}
     >
       <div className="w-full py-4 px-5 md:px-8 flex flex-col gap-2 sm:justify-between sm:items-center sm:flex-row 2xl:container 2xl:mx-auto">
         <Link

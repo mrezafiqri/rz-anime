@@ -45,10 +45,12 @@ const Jumbotroon = () => {
   };
 
   return (
-    <article className="relative rounded-3xl overflow-hidden my-4">
+    <article className="relative rounded-3xl overflow-hidden">
       <Image
         src={slides[currentIndex].image}
         alt={`Background ${slides[currentIndex].title}`}
+        priority={false}
+        loading="lazy"
         className="h-[60vh] w-full object-cover object-center md:h-[80vh] transition-all duration-500 bg-color-dark"
       />
       <div className="absolute top-0 left-0 right-0 z-[1] bg-gradient-to-r from-color-black  to-color-dark/0 to-100% w-full h-full flex justify-between items-center text-color-secondary group">

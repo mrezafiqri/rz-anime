@@ -4,8 +4,8 @@
 
 @layer components {
   .min-h-w {
-    min-height: 44px;
-    min-width: 44px;
+    min-height: 40px;
+    min-width: 40px;
   }
 
   .jbt-left-group {
@@ -26,7 +26,15 @@
 }
 
 @layer utilities {
-  .bg-blur {
-    @apply bg-color-accent/80 backdrop-blur-lg border border-color-white/10 bg-gradient-to-r from-color-white/10 to-color-black/20;
+  .bg-blur-gradient {
+    @apply bg-color-dark/10 backdrop-blur-lg  bg-gradient-to-r from-color-red/30 to-color-accent/30;
+  }
+
+  .bg-blur-dark {
+    @apply backdrop-blur-lg  bg-gradient-to-r from-color-secondary/30 to-color-white/10;
+  }
+
+  .bg-blur-accent {
+    @apply bg-color-accent  backdrop-blur-lg border border-color-white/10 bg-gradient-to-r from-color-white/10 to-color-black/20 hover:bg-color-accent/50 transition-all duration-75
   }
 }
