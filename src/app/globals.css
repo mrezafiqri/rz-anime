@@ -31,10 +31,29 @@
   }
 
   .bg-blur-dark {
-    @apply backdrop-blur-lg  bg-gradient-to-r from-color-secondary/30 to-color-white/10;
+    @apply backdrop-blur-lg bg-gradient-to-r from-color-secondary/30 to-color-white/10;
   }
 
   .bg-blur-accent {
     @apply bg-color-accent  backdrop-blur-lg border border-color-white/10 bg-gradient-to-r from-color-white/10 to-color-black/20 hover:bg-color-accent/50 transition-all duration-75
   }
+
+  .bg-blur-hover {
+    @apply bg-color-primary/0 backdrop-blur-lg bg-gradient-to-r from-color-secondary/30 to-color-white/10 hover:bg-color-primary/10 hover:from-color-red/20 hover:to-color-accent/50 transition-all duration-300;
+  }
+}
+
+.loading {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: 
+    radial-gradient(farthest-side,#2d7edd 94%,#0000) top/16px 16px no-repeat,
+    conic-gradient(#0000 30%,#2d7edd);
+  -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 16px),#000 0);
+  animation:s3 0.5s infinite linear;
+}
+
+@keyframes s3{ 
+  100%{transform: rotate(1turn)}
 }

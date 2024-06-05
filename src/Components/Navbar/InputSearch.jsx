@@ -19,6 +19,7 @@ const InputSearch = () => {
     if (valueValidation()) {
       e.preventDefault();
       searchAnime(searchRef.current.value);
+      searchRef.current.value = "";
     }
   };
 
@@ -27,6 +28,7 @@ const InputSearch = () => {
       if (e.key === "Enter" || e.which === 13) {
         e.preventDefault();
         searchAnime(searchRef.current.value);
+        searchRef.current.value = "";
       }
     }
   };
@@ -35,7 +37,7 @@ const InputSearch = () => {
     <div className="relative">
       <input
         ref={searchRef}
-        onKeyUp={enterSearch}
+        onKeyDown={enterSearch}
         placeholder="Search anime..."
         className="w-full min-h-w px-4 text-color-primary rounded-full bg-color-white/0 outline outline-2 outline-color-primary focus:outline-color-accent/80 focus:bg-gradient-to-r focus:from-color-accent/30 focus:from-30% focus:to-color-white/20 focus:backdrop-blur-lg"
       />
