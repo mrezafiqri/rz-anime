@@ -24,11 +24,11 @@ const Page = async () => {
         <AnimeList api={comingUpAnime} />
       </section>
       <section>
-        <Header title="POPULER" linkHref="/populer" linkTitle="See all" />
+        <Header title="POPULER" linkHref="/populer" linkTitle="View All" />
         <SwipeAnimeList api={topAnime} />
       </section>
       <section>
-        <Header title="SHOWING NOW" linkHref="/populer" linkTitle="See all" />
+        <Header title="SHOWING NOW" linkHref="/populer" linkTitle="View All" />
         <SwipeAnimeList api={seasonsNow} />
       </section>
       <section>

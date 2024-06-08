@@ -6,7 +6,10 @@ import Link from "next/link";
 
 const CardAnime = ({ anime }) => {
   return (
-    <Link href="/" className="grid gap-2 group items-start">
+    <Link
+      href={`/anime/${anime.mal_id}`}
+      className="grid gap-2 group items-start"
+    >
       <header className="rounded-lg overflow-hidden relative">
         <Image
           className="aspect-3/4 object-cover object-center group-hover:scale-110 group-hover:rotate-3 group-hover:brightness-50 group-hover:blur-[2px]  transition-all duration-300 bg-color-secondary"

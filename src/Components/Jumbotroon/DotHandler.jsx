@@ -4,7 +4,7 @@ import { Circle } from "@phosphor-icons/react";
 
 const DotHandler = ({ slides, goToSlide, currentIndex }) => {
   return (
-    <div className="absolute bottom-4 left-0 right-0 w-full flex justify-center items-center">
+    <div className="absolute bottom-2 md:bottom-4 left-0 right-0 w-full flex justify-center items-center">
       {slides.map((slide, index) => {
         return (
           <div

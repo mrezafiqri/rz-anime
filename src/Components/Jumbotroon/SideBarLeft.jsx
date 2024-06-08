@@ -6,7 +6,7 @@ import Link from "next/link";
 const SideBarLeft = ({ slides, currentIndex }) => {
   return (
     <section className="jbt-left-group">
-      <h1 className="font-bold text-color-white/95 line-clamp-2 text-2xl sm:text-3xl md:text-5xl md:line-clamp-none">
+      <h1 className="font-bold text-color-white/95 line-clamp-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl md:line-clamp-none">
         {slides[currentIndex].title}
       </h1>
 
@@ -32,11 +32,11 @@ const SideBarLeft = ({ slides, currentIndex }) => {
 
       <div className="grid grid-cols-2 gap-x-2 gap-y-4 w-full sm:grid-cols-2 md:gap-x-4">
         <Link
-          href={"/"}
+          href={`/anime/${slides[currentIndex].mal_id}`}
           className="jbt-link-group bg-color-accent hover:bg-color-accent/50 transition-all duration-75 "
         >
           <DotsThreeCircle className="text-sm md:text-2xl" weight="bold" />
-          <p>Read more</p>
+          <p>More Details</p>
         </Link>
         <Link
           href={slides[currentIndex].youtube_url}
@@ -44,7 +44,7 @@ const SideBarLeft = ({ slides, currentIndex }) => {
           className="jbt-link-group bg-color-red hover:bg-color-red/50 transition-all duration-75"
         >
           <YoutubeLogo className="text-sm md:text-2xl" weight="bold" />
-          <p>Watch trailer</p>
+          <p>Watch Trailer</p>
         </Link>
       </div>
     </section>

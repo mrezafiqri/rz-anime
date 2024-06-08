@@ -19,3 +19,12 @@ export const reproduce = (responData, gapNumber) => {
 
   return replaceroPertyAnime;
 };
+
+export const getObjectNestedAnime = async (objectAnime) => {
+  let airedItem = await [];
+
+  for (const obj in objectAnime) {
+    airedItem.push(objectAnime[obj]);
+  }
+  return airedItem;
+};
