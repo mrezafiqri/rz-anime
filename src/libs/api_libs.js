@@ -1,12 +1,15 @@
 export const getAnimeRespons = async (resource, query) => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${resource}?${query}`);
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/${resource}?${query}`,
+    { cache: "no-store" }
+  );
   const anime = response.json();
   return anime;
 };
 
 export const getNestedAnimeResponse = async (resource, objectProperty) => {
   const response = await getAnimeRespons(resource);
-  return response.data.flatMap((item) => item[objectProperty]);
+  return response?.data?.flatMap((item) => item[objectProperty]);
 };
 
 export const reproduce = (responData, gapNumber) => {
@@ -21,10 +24,22 @@ export const reproduce = (responData, gapNumber) => {
 };
 
 export const getObjectNestedAnime = async (objectAnime) => {
-  let airedItem = await [];
+  let newObjectAnime = await [];
 
   for (const obj in objectAnime) {
-    airedItem.push(objectAnime[obj]);
+    newObjectAnime.push(objectAnime[obj]);
   }
-  return airedItem;
+  return newObjectAnime;
+};
+
+export const getFilteredAnime = async (
+  resource,
+  objectProperty,
+  targetValue
+) => {
+  const filterAnime = await getAnimeRespons(resource);
+  const response = await filterAnime.data.filter(
+    (anime) => anime[objectProperty] === targetValue
+  );
+  return response;
 };

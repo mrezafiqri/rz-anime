@@ -4,8 +4,8 @@
 
 @layer components {
   .min-h-w {
-    min-height: 40px;
-    min-width: 40px;
+    min-height: 35px;
+    min-width: 35px;
   }
 
   .jbt-left-group {
@@ -37,6 +37,9 @@
   .bg-blur-accent {
     @apply bg-color-accent  backdrop-blur-lg border border-color-white/10 bg-gradient-to-r from-color-white/10 to-color-black/20 hover:bg-color-accent/50 transition-all duration-75
   }
+  .bg-blur-red {
+    @apply bg-color-red  backdrop-blur-lg border border-color-white/10 bg-gradient-to-r from-color-white/10 to-color-black/20 hover:bg-color-red/50 transition-all duration-75
+  }
 
   .bg-blur-hover {
     @apply bg-color-primary/0 backdrop-blur-lg bg-gradient-to-r from-color-secondary/30 to-color-white/10 hover:bg-color-primary/10 hover:from-color-red/20 hover:to-color-accent/50 transition-all duration-300;
@@ -56,4 +59,26 @@
 
 @keyframes s3{ 
   100%{transform: rotate(1turn)}
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2d7edd;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(45, 126, 221, .8);
 }

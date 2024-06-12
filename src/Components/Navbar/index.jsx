@@ -30,7 +30,7 @@ const Navbar = () => {
       <div className="w-full py-4 px-5 md:px-8 flex flex-col gap-2 sm:justify-between sm:items-center sm:flex-row 2xl:container 2xl:mx-auto">
         <Link
           href="/"
-          className="bg-color-accent bg-gradient-to-r from-color-white/10 to-color-white/20 to-100% bg-clip-text font-bold text-3xl lg:text-4xl pr-2 italic inline-block text-color-white/0 hover:text-color-accent/80 transition-all duration-300"
+          className="text-center bg-color-accent bg-gradient-to-r from-color-white/10 to-color-white/20 to-100% bg-clip-text font-bold text-3xl lg:text-4xl pr-2 italic inline-block text-color-white/0 hover:text-color-accent/80 transition-all duration-300"
         >
           WATCHNIME
         </Link>

@@ -13,7 +13,7 @@ const RecomendedAnime = ({ api }) => {
           >
             <div className="flex gap-2 md:gap-4 items-center">
               <Image
-                className=" object-cover object-center bg-color-secondary rounded lg:min-w-[80px] lg:h-[80px]"
+                className="aspect-3/4 w-auto object-cover object-center bg-color-secondary rounded lg:min-w-[80px] lg:h-[80px] lg:aspect-auto"
                 src={anime.images.webp.image_url}
                 alt={`Image ${anime.title}`}
                 width={50}

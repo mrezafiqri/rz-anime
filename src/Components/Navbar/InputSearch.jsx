@@ -45,7 +45,7 @@ const InputSearch = () => {
         onClick={handleSearch}
         className="absolute text-color-primary top-1 end-3 hover:text-color-accent/80 transition duration-75"
       >
-        <MagnifyingGlass size={32} />
+        <MagnifyingGlass size={28} />
       </button>
     </div>
   );
