@@ -11,18 +11,18 @@ const CharactersAnime = ({ resultCharacter }) => {
           >
             <Image
               className="object-cover object-center bg-color-secondary w-auto h-auto"
-              src={chcAnime.character.images.webp.image_url}
-              alt={`Image ${chcAnime.character.name}`}
+              src={chcAnime?.character?.images.webp.image_url}
+              alt={`Image ${chcAnime?.character?.name}`}
               width={40}
               height={40}
               loading="lazy"
             />
             <span className="grid items-center">
-              <h1 className="text-color-primary font-semibold line-clamp-1 text-sm md:text-base">
-                {chcAnime.character.name}
+              <h1 className="text-color-primary text-wrap font-semibold line-clamp-2 text-sm md:text-base">
+                {chcAnime?.character?.name}
               </h1>
               <p className="text-color-white/60 text-xs">
-                {chcAnime.role}
+                {chcAnime?.role}
               </p>
             </span>
           </div>

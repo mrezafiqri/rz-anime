@@ -15,8 +15,8 @@ const CardAnime = ({ anime }) => {
           className="aspect-3/4 object-cover object-center group-hover:scale-110 group-hover:rotate-3 group-hover:brightness-50 group-hover:blur-[2px]  transition-all duration-300 bg-color-secondary"
           src={anime.images.webp.image_url}
           alt={`Image ${anime.title}`}
-          width={350}
-          height={350}
+          width={250}
+          height={250}
           priority="true"
         />
         <div className="text-base text-color-primary flex justify-center items-center absolute top-0 w-full h-full invisible group-hover:visible transition-all duration-100">

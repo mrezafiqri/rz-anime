@@ -9,6 +9,16 @@ const DetailAnime = ({ api, airedAnime, resultCharacter }) => {
   const [readMore, setReadMore] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const lengthSynopsis = api?.data.synopsis.length;
+  const scrollTop = () => {
+    scrollTo({
+      behavior: "smooth",
+      top: 0,
+    });
+  };
+
+  useEffect(() => {
+    scrollTop();
+  }, [api])
 
   useEffect(() => {
     lengthSynopsis > 100 ? setShowButton(true) : setShowButton(false);
@@ -17,6 +27,15 @@ const DetailAnime = ({ api, airedAnime, resultCharacter }) => {
   const handlerReadMore = () => {
     setReadMore(!readMore);
   };
+
+  const detailAnime = {
+    api: api,
+    airedAnime: airedAnime,
+    resultCharacter: resultCharacter,
+    readMore: readMore,
+    showButton: showButton,
+    handlerReadMore: handlerReadMore,
+  }
 
   return (
     <>
@@ -33,12 +52,7 @@ const DetailAnime = ({ api, airedAnime, resultCharacter }) => {
           <HeaderDetail api={api} />
           <hr className="my-1 text-color-primary/20" />
           <BodyDetail
-            api={api}
-            airedAnime={airedAnime}
-            resultCharacter={resultCharacter}
-            readMore={readMore}
-            showButton={showButton}
-            handlerReadMore={handlerReadMore}
+            detailAnime={detailAnime}
           />
         </div>
       </section>

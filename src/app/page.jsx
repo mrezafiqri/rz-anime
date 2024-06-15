@@ -28,14 +28,14 @@ const Page = async () => {
         <SwipeAnimeList api={topAnime} />
       </section>
       <section>
-        <Header title="SHOWING NOW" linkHref="/populer" linkTitle="View All" />
+        <Header title="SHOWING NOW" linkHref="/show-now" linkTitle="View All" />
         <SwipeAnimeList api={seasonsNow} />
       </section>
       <section>
         <Header title="RECOMENDED" />
         <RecomendedAnime api={recomendedAnime}/>
       </section>
-      <div className="pb-96"></div>
+      <div className="pb-10"></div>
     </main>
   );
 };

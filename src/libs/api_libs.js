@@ -1,7 +1,6 @@
 export const getAnimeRespons = async (resource, query) => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/${resource}?${query}`,
-    { cache: "no-store" }
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/${resource}?${query}`
   );
   const anime = response.json();
   return anime;
@@ -38,7 +37,7 @@ export const getFilteredAnime = async (
   targetValue
 ) => {
   const filterAnime = await getAnimeRespons(resource);
-  const response = await filterAnime.data.filter(
+  const response = await filterAnime.data?.filter(
     (anime) => anime[objectProperty] === targetValue
   );
   return response;
