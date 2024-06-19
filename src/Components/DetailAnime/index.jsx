@@ -26,6 +26,7 @@ const DetailAnime = ({ api, airedAnime, resultCharacter }) => {
 
   const handlerReadMore = () => {
     setReadMore(!readMore);
+    scrollTop();
   };
 
   const detailAnime = {
@@ -46,7 +47,7 @@ const DetailAnime = ({ api, airedAnime, resultCharacter }) => {
           alt={`Image ${api.data.title}`}
           width={350}
           height={350}
-          loading="lazy"
+          priority="true"
         />
         <div className="grid gap-1 w-full">
           <HeaderDetail api={api} />

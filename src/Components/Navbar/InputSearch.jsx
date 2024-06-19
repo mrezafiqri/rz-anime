@@ -1,12 +1,36 @@
 "use client";
 
+import { getAnimeRespons } from "@/libs/api_libs";
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import { useRouter } from "next/navigation";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import BoxAnime from "./BoxAnime";
 
 const InputSearch = () => {
   const searchRef = useRef();
   const router = useRouter();
+  const [query, setQuery] = useState("");
+  const [boxAnime, setBoxAnime] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (query !== "") {
+          const response = await getAnimeRespons("anime", `q=${query}&limit=5`);
+          setBoxAnime(response);
+        } else {
+          setBoxAnime([]);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    const timer = setTimeout(() => {
+      fetchData();
+    }, 500);
+
+    return () => clearInterval(timer);
+  }, [query]);
 
   const searchAnime = (keyword) => router.push(`/search/${keyword}`);
 
@@ -15,12 +39,18 @@ const InputSearch = () => {
     return keyword !== "" && keyword.trim() !== "" && keyword.length > 2;
   };
 
-  const handleSearch = (e) => {
+  const handlerSearchBox = () => {
+    if (valueValidation()) return setQuery(searchRef.current.value);
+    setBoxAnime([]);
+  };
+
+  const handleSearchBtn = (e) => {
     if (valueValidation()) {
       e.preventDefault();
       searchAnime(searchRef.current.value);
       searchRef.current.value = "";
     }
+    setBoxAnime([]);
   };
 
   const enterSearch = (e) => {
@@ -31,22 +61,34 @@ const InputSearch = () => {
         searchRef.current.value = "";
       }
     }
+    setBoxAnime([]);
+  };
+
+  const handlerReset = () => {
+    setBoxAnime([]);
+    searchRef.current.value = "";
   };
 
   return (
-    <div className="relative">
+    <div className="relative md:min-w-80">
       <input
         ref={searchRef}
         onKeyDown={enterSearch}
+        onKeyUp={() => {
+          handlerSearchBox();
+        }}
         placeholder="Search anime..."
         className="w-full min-h-w px-4 text-color-primary rounded-full bg-color-white/0 outline outline-2 outline-color-primary focus:outline-color-accent/80 focus:bg-gradient-to-r focus:from-color-accent/30 focus:from-30% focus:to-color-white/20 focus:backdrop-blur-lg"
       />
       <button
-        onClick={handleSearch}
+        onClick={handleSearchBtn}
         className="absolute text-color-primary top-1 end-3 hover:text-color-accent/80 transition duration-75"
       >
         <MagnifyingGlass size={28} />
       </button>
+      {boxAnime?.length !== 0 ? (
+        <BoxAnime api={boxAnime} handlerReset={handlerReset} />
+      ) : null}
     </div>
   );
 };

@@ -45,7 +45,7 @@ const SwipeAnimeList = ({ api }) => {
       {isLoading ? (
         <Loading />
       ) : (
-        api?.data.map((anime, index) => {
+        api?.data?.map((anime, index) => {
           return (
             <SwiperSlide
               key={index}
