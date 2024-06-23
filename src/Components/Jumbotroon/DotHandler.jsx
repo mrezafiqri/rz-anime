@@ -15,7 +15,10 @@ const DotHandler = ({ slides, goToSlide, currentIndex }) => {
             {index === currentIndex ? (
               <Circle className="text-xs text-color-white" weight="fill" />
             ) : (
-              <Circle className="text-[8px] text-color-primary/70" weight="fill" />
+              <Circle
+                className="text-[8px] text-color-primary/70"
+                weight="fill"
+              />
             )}
           </div>
         );

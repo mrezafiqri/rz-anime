@@ -18,7 +18,7 @@ const DetailAnime = ({ api, airedAnime, resultCharacter }) => {
 
   useEffect(() => {
     scrollTop();
-  }, [api])
+  }, [api]);
 
   useEffect(() => {
     lengthSynopsis > 100 ? setShowButton(true) : setShowButton(false);
@@ -36,7 +36,7 @@ const DetailAnime = ({ api, airedAnime, resultCharacter }) => {
     readMore: readMore,
     showButton: showButton,
     handlerReadMore: handlerReadMore,
-  }
+  };
 
   return (
     <>
@@ -52,9 +52,7 @@ const DetailAnime = ({ api, airedAnime, resultCharacter }) => {
         <div className="grid gap-1 w-full">
           <HeaderDetail api={api} />
           <hr className="my-1 text-color-primary/20" />
-          <BodyDetail
-            detailAnime={detailAnime}
-          />
+          <BodyDetail detailAnime={detailAnime} />
         </div>
       </section>
     </>

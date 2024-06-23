@@ -14,21 +14,25 @@ const Pagination = ({ page, setPage, lastPage }) => {
     });
   };
 
-  const handlerPrevPage = () => {
+  const handlerPrevPage = (e) => {
+    e.preventDefault();
     setPage((prevState) => prevState - 1);
     scrollTop();
   };
 
-  const handlerNextPage = () => {
+  const handlerNextPage = (e) => {
+    e.preventDefault();
     setPage((prevState) => prevState + 1);
     scrollTop();
   };
 
-  const handlerFirstPage = () => {
+  const handlerFirstPage = (e) => {
+    e.preventDefault();
     setPage(1);
     scrollTop();
   };
-  const handlerLastPage = () => {
+  const handlerLastPage = (e) => {
+    e.preventDefault();
     setPage(lastPage);
     scrollTop();
   };
@@ -53,8 +57,8 @@ const Pagination = ({ page, setPage, lastPage }) => {
         </button>
         <div>
           <p className="text-xs md:text-sm text-color-primary">
-            Page <span className="font-medium">{page || 0}</span> of{" "}
-            <span className="font-medium">{lastPage || 0}</span> Result
+            Page <span className="font-medium">{page || 1}</span> of{" "}
+            <span className="font-medium">{lastPage || 1}</span> Result
           </p>
         </div>
         <button

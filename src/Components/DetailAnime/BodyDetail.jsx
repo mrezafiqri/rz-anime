@@ -12,7 +12,7 @@ const BodyDetail = ({ detailAnime }) => {
     showButton,
     handlerReadMore,
   } = detailAnime;
-  
+
   return (
     <article className="w-full absolute top-[105%] inset-x-0 md:sticky">
       <div className="w-full grid gap-y-1 lg:w-2/4">

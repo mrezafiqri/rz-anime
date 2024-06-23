@@ -21,9 +21,7 @@ const CharactersAnime = ({ resultCharacter }) => {
               <h1 className="text-color-primary text-wrap font-semibold line-clamp-2 text-sm md:text-base">
                 {chcAnime?.character?.name}
               </h1>
-              <p className="text-color-white/60 text-xs">
-                {chcAnime?.role}
-              </p>
+              <p className="text-color-white/60 text-xs">{chcAnime?.role}</p>
             </span>
           </div>
         );

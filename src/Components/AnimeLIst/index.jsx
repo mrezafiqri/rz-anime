@@ -13,7 +13,7 @@ const SwipeAnimeList = ({ api }) => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 1500);
+    }, 1000);
   }, []);
 
   const costumPaginationStyle = {

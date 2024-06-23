@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import AnimeList from "@/Components/AnimeLIst/AnimeList";
 import Header from "@/Components/AnimeLIst/Header";
@@ -10,12 +9,14 @@ const Page = () => {
   const [page, setPage] = useState(1);
   const [topAnimeList, setTopAnimeList] = useState([]);
 
-  const fetchData = async () => {
-    const populerAnime = await getAnimeRespons("top/anime", `page=${page}`);
-    setTopAnimeList(populerAnime);
-  };
-  
   useEffect(() => {
+    const fetchData = async () => {
+      const populerAnime = await getAnimeRespons(
+        "top/anime",
+        `sfw&page=${page}`
+      );
+      setTopAnimeList(populerAnime);
+    };
     fetchData();
   }, [page]);
 

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import BoxAnime from "./BoxAnime";
 
-const InputSearch = () => {
+const InputSearch = ({ closeHamburger }) => {
   const searchRef = useRef();
   const router = useRouter();
   const [query, setQuery] = useState("");
@@ -16,7 +16,10 @@ const InputSearch = () => {
     const fetchData = async () => {
       try {
         if (query !== "") {
-          const response = await getAnimeRespons("anime", `q=${query}&limit=5`);
+          const response = await getAnimeRespons(
+            "anime",
+            `sfw&q=${query}&limit=5`
+          );
           setBoxAnime(response);
         } else {
           setBoxAnime([]);
@@ -49,6 +52,7 @@ const InputSearch = () => {
       e.preventDefault();
       searchAnime(searchRef.current.value);
       searchRef.current.value = "";
+      closeHamburger(false);
     }
     setBoxAnime([]);
   };
@@ -59,6 +63,7 @@ const InputSearch = () => {
         e.preventDefault();
         searchAnime(searchRef.current.value);
         searchRef.current.value = "";
+        closeHamburger(false);
       }
     }
     setBoxAnime([]);
@@ -66,11 +71,12 @@ const InputSearch = () => {
 
   const handlerReset = () => {
     setBoxAnime([]);
+    closeHamburger(false);
     searchRef.current.value = "";
   };
 
   return (
-    <div className="relative md:min-w-80">
+    <div className="relative md:min-w-72">
       <input
         ref={searchRef}
         onKeyDown={enterSearch}

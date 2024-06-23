@@ -4,14 +4,18 @@ import { getAnimeRespons } from "@/libs/api_libs";
 
 const Page = async ({ params }) => {
   const { keyword } = await params;
-  const resultAnime = await getAnimeRespons("anime", `q=${keyword}`);
+  const resultAnime = await getAnimeRespons("anime", `sfw&q=${keyword}`);
   const changeKeyword = decodeURI(keyword);
 
   const ValidateResultAnime = () => {
     if (resultAnime.data.length === 0) {
       return (
         <>
-          <Header title={`Results Not-Found : ${changeKeyword}`} linkHref={"/"} linkTitle={"Back to home"}/>
+          <Header
+            title={`Results Not-Found : ${changeKeyword}`}
+            linkHref={"/"}
+            linkTitle={"Back to home"}
+          />
           <article className="min-h-[80vh] w-full flex flex-col justify-center items-center">
             <h1 className="text-color-accent text-2xl font-bold uppercase">
               {`Results ${changeKeyword} not found`}

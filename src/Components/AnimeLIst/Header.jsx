@@ -10,7 +10,10 @@ const Header = ({ title, linkHref, linkTitle }) => {
         <h1 className="">{title}</h1>
       </div>
       {linkHref && linkTitle ? (
-        <Link href={linkHref} className="bg-blur-accent rounded-md py-1 px-3 text-sm md:text-base">
+        <Link
+          href={linkHref}
+          className="bg-blur-accent rounded-md py-1 px-3 text-sm md:text-base"
+        >
           {linkTitle}
         </Link>
       ) : null}
