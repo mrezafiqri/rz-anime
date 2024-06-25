@@ -42,3 +42,8 @@ export const getFilteredAnime = async (
   );
   return response;
 };
+
+export const FILTER_TYPE_ANIME = {
+  type: ["all", "tv", "movie", "special", "ona", "music", "cm", "pv", "tv_special"],
+  filter: ["all", "tv", "movie", "special", "ona", "music"]
+}
