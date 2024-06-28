@@ -25,26 +25,26 @@ const SideBarLeft = ({ slides, currentIndex }) => {
       </div>
 
       <div className="jbt-card-synopsis">
-        <p className="line-clamp-4 text-xs md:text-base md:line-clamp-6 ">
+        <p className="line-clamp-3 text-xs md:text-base md:line-clamp-6 ">
           {slides[currentIndex].synopsis}
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-x-2 gap-y-4 w-full sm:grid-cols-2 md:gap-x-4">
+      <div className="grid grid-cols-2 gap-x-2 w-full sm:grid-cols-2 md:gap-x-4">
         <Link
           href={`/anime/${slides[currentIndex].mal_id}`}
-          className="jbt-link-group bg-color-accent hover:bg-color-accent/50 transition-all duration-75 "
+          className="link-blur-group w-full p-2 rounded-lg bg-color-accent hover:bg-color-accent/50 transition-all duration-75 "
         >
           <DotsThreeCircle className="text-sm md:text-2xl" weight="bold" />
-          <p>More Details</p>
+          <p className="text-xs sm:text-sm md:text-base lg:text-xl">More Details</p>
         </Link>
         <Link
           href={slides[currentIndex].youtube_url}
           target="_blank"
-          className="jbt-link-group bg-color-red hover:bg-color-red/50 transition-all duration-75"
+          className="link-blur-group w-full p-2 rounded-lg bg-color-red hover:bg-color-red/50 transition-all duration-75"
         >
           <YoutubeLogo className="text-sm md:text-2xl" weight="bold" />
-          <p>Watch Trailer</p>
+          <p className="text-xs sm:text-sm md:text-base lg:text-xl">Watch Trailer</p>
         </Link>
       </div>
     </section>

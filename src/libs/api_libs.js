@@ -12,11 +12,11 @@ export const getNestedAnimeResponse = async (resource, objectProperty) => {
 };
 
 export const reproduce = (responData, gapNumber) => {
-  const firstNumber = ~~(Math.random() * (responData.length - gapNumber) + 1);
+  const firstNumber = ~~(Math.random() * (responData?.length - gapNumber) + 1);
   const lastNumber = firstNumber + gapNumber;
 
   const replaceroPertyAnime = {
-    data: responData.slice(firstNumber, lastNumber),
+    data: responData?.slice(firstNumber, lastNumber),
   };
 
   return replaceroPertyAnime;
@@ -42,8 +42,3 @@ export const getFilteredAnime = async (
   );
   return response;
 };
-
-export const FILTER_TYPE_ANIME = {
-  type: ["all", "tv", "movie", "special", "ona", "music", "cm", "pv", "tv_special"],
-  filter: ["all", "tv", "movie", "special", "ona", "music"]
-}

@@ -29,7 +29,7 @@ const BoxGenre = ({ setIsBoxGenreActive, closeHamburger }) => {
                 key={index}
                 onClick={() => closeHamburger(false)}
                 href={`/genres/${genre.mal_id}`}
-                className="text-color-primary text-xs sm:text-sm text-center  rounded-full transition duration-150 p-2 bg-blur-hover"
+                className="text-color-primary text-xs sm:text-sm text-center rounded-full transition duration-150 p-2 bg-blur-hover"
               >
                 {genre.name}
               </Link>

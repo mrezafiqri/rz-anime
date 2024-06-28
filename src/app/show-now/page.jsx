@@ -3,7 +3,8 @@ import AnimeList from "@/Components/AnimeLIst/AnimeList";
 import Header from "@/Components/AnimeLIst/Header";
 import Pagination from "@/Components/Utilities/Pagination";
 import TypeAnime from "@/Components/Utilities/TypeAnime";
-import { FILTER_TYPE_ANIME, getAnimeRespons } from "@/libs/api_libs";
+import { getAnimeRespons } from "@/libs/api_libs";
+import { FILTER_TYPE_ANIME } from "@/libs/utils";
 import { useEffect, useState } from "react";
 
 const Page = () => {

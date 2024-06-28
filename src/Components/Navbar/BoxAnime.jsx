@@ -27,6 +27,7 @@ const BoxAnime = ({ api, handlerReset }) => {
                   alt={`Image ${anime?.title}`}
                   width={50}
                   height={50}
+                  quality={60}
                   loading="lazy"
                 />
                 <span className="grid justify-start items-center w-full">

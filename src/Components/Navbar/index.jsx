@@ -39,7 +39,7 @@ const Navbar = () => {
             href="/"
             className="text-center bg-color-accent bg-gradient-to-r from-color-white/10 to-color-white/20 to-100% bg-clip-text font-bold text-3xl lg:text-4xl pr-2 italic inline-block text-color-white/0 hover:text-color-accent/80 transition-all duration-300"
           >
-            WATCHNIME
+            RZ-ANIME
           </Link>
           <HamburgerMenu hamburger={hamburger} setHamburger={setHamburger} />
         </span>

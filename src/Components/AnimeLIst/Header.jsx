@@ -12,7 +12,7 @@ const Header = ({ title, linkHref, linkTitle }) => {
       {linkHref && linkTitle ? (
         <Link
           href={linkHref}
-          className="bg-blur-accent rounded-md py-1 px-3 text-sm md:text-base"
+          className="bg-color-accent backdrop-blur-md border border-color-white/10 bg-gradient-to-r from-color-white/10 to-color-black/20 hover:bg-color-accent/50 rounded-md py-1 px-3 text-sm md:text-base"
         >
           {linkTitle}
         </Link>

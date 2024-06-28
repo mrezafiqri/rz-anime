@@ -18,7 +18,7 @@ const TypeAnime = ({ setTypeAnime, handlerTitle, setPage, initialType }) => {
           <button
             key={index}
             onClick={() => handleType(index)}
-            className="capitalize px-2 py-1 text-color-primary border border-color-black rounded-md bg-blur-accent shadow shadow-color-black font-medium hover:bg-color-accent/50"
+            className="capitalize px-2 py-1 text-color-primary rounded-md link-blur-group shadow shadow-color-black font-medium bg-color-accent hover:bg-color-accent/50"
           >
             {type}
           </button>

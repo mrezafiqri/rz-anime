@@ -1,15 +1,9 @@
 "use client";
+import { scrollTop } from "@/libs/utils";
 import React, { Suspense, useEffect } from "react";
 const CardAnime = React.lazy(() => import("./CardAnime"));
 
 const AnimeList = ({ api }) => {
-  const scrollTop = () => {
-    scrollTo({
-      behavior: "smooth",
-      top: 0,
-    });
-  };
-
   useEffect(() => {
     scrollTop();
   }, [api]);

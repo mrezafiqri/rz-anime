@@ -1,9 +1,11 @@
 import SwipeAnimeList from "@/Components/AnimeLIst";
 import AnimeList from "@/Components/AnimeLIst/AnimeList";
 import Header from "@/Components/AnimeLIst/Header";
-import RecomendedAnime from "@/Components/AnimeLIst/RecomendedAnime";
 import Jumbotroon from "@/Components/Jumbotroon";
 import { getAnimeRespons, getNestedAnimeResponse, reproduce } from "@/libs/api_libs";
+import dynamic from "next/dynamic";
+
+const RecomendedAnime = dynamic(() => import("../Components/AnimeLIst/RecomendedAnime"));
 
 const Page = async () => {
 
@@ -13,7 +15,6 @@ const Page = async () => {
   let recomendedAnime = await getNestedAnimeResponse("recommendations/anime?sfw", "entry");
   recomendedAnime = reproduce(recomendedAnime, 8);
   
-
   return (
     <main className="w-full mt-2 px-5 grid grid-cols-1 gap-4 md:px-8 2xl:container 2xl:mx-auto">
       <section>
@@ -35,7 +36,6 @@ const Page = async () => {
         <Header title="RECOMENDED" />
         <RecomendedAnime api={recomendedAnime}/>
       </section>
-      <div className="pb-10"></div>
     </main>
   );
 };

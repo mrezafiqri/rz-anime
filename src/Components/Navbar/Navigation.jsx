@@ -22,7 +22,6 @@ const Navigation = ({ hamburger, closeHamburger }) => {
       <span className="flex justify-end items-center gap-2">
         <button
           onClick={handlerBoxGenre}
-          onMouseEnter={() => setIsBoxGenreActive(true)}
           className="text-color-primary font-light text-lg min-h-w px-2 flex items-center gap-x-1 hover:text-color-accent/80 transition duration-100"
         >
           <FolderOpen size={20} weight="fill" />

@@ -5,7 +5,7 @@ import Navbar from "@/Components/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "WATCHNIME",
+  title: "RZ-ANIME",
   description: "Website Anime Indonesia",
 };
 

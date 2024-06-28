@@ -4,17 +4,12 @@ import Image from "next/image";
 import BodyDetail from "./BodyDetail";
 import HeaderDetail from "./HeaderDetail";
 import { useEffect, useState } from "react";
+import { scrollTop } from "@/libs/utils";
 
 const DetailAnime = ({ api, airedAnime, resultCharacter }) => {
   const [readMore, setReadMore] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const lengthSynopsis = api?.data.synopsis.length;
-  const scrollTop = () => {
-    scrollTo({
-      behavior: "smooth",
-      top: 0,
-    });
-  };
 
   useEffect(() => {
     scrollTop();
@@ -44,9 +39,10 @@ const DetailAnime = ({ api, airedAnime, resultCharacter }) => {
         <Image
           className="aspect-3/4 object-cover object-center rounded-lg bg-color-secondary w-[120px] md:min-w-[250px] md:h-auto lg:w-[400px]"
           src={api?.data.images.webp.large_image_url}
-          alt={`Image ${api.data.title}`}
+          alt={`Image ${api?.data.title}`}
           width={350}
           height={350}
+          quality={75}
           priority="true"
         />
         <div className="grid gap-1 w-full">

@@ -8,7 +8,7 @@ const Page = async ({ params }) => {
   const changeKeyword = decodeURI(keyword);
 
   const ValidateResultAnime = () => {
-    if (resultAnime.data.length === 0) {
+    if (resultAnime.data?.length === 0) {
       return (
         <>
           <Header
@@ -36,9 +36,7 @@ const Page = async ({ params }) => {
 
   return (
     <article className="w-full px-5 grid grid-cols-1 md:px-8 2xl:container 2xl:mx-auto">
-      <section>
-        <ValidateResultAnime />
-      </section>
+      <ValidateResultAnime />
     </article>
   );
 };

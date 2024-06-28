@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   min-height: 100%;
   overflow-x: clip;
 }
@@ -24,46 +25,47 @@ html, body {
   .jbt-text-group-genres {
     @apply py-2 px-3 bg-gradient-to-r from-color-white/10 to-color-black/20 backdrop-blur-lg rounded-lg border border-color-white/10 text-xs md:text-base;
   }
-
-  .jbt-link-group {
-    @apply flex justify-center items-center gap-1 w-full font-semibold py-2 px-2 backdrop-blur-lg rounded-lg border border-color-white/10 text-xs sm:px-3 sm:text-sm md:text-xl bg-gradient-to-r from-color-white/10 to-color-black/20;
-  }
 }
 
 @layer utilities {
-  .bg-blur-gradient {
-    @apply bg-color-dark/10 backdrop-blur-lg  bg-gradient-to-r from-color-red/30 to-color-accent/30;
+  .link-blur-group {
+    @apply flex justify-center items-center gap-1 font-semibold backdrop-blur-lg border border-color-white/10 bg-gradient-to-r from-color-white/10 to-color-black/20;
   }
 
   .bg-blur-dark {
     @apply backdrop-blur-lg bg-gradient-to-r from-color-secondary/30 to-color-white/10;
   }
 
-  .bg-blur-accent {
-    @apply bg-color-accent  backdrop-blur-lg border border-color-white/10 bg-gradient-to-r from-color-white/10 to-color-black/20 hover:bg-color-accent/50 transition-all duration-75
-  }
-  .bg-blur-red {
-    @apply bg-color-red  backdrop-blur-lg border border-color-white/10 bg-gradient-to-r from-color-white/10 to-color-black/20 hover:bg-color-red/50 transition-all duration-75
-  }
-
   .bg-blur-hover {
     @apply bg-color-primary/0 backdrop-blur-lg bg-gradient-to-r from-color-secondary/30 to-color-white/10 hover:bg-color-primary/10 hover:from-color-red/20 hover:to-color-accent/50 transition-all duration-300;
   }
+
+  .arrow-handler {
+    @apply border border-color-secondary/10 rounded-lg shadow-md p-2 bg-color-dark group-hover:border-color-secondary hover:text-color-primary transition duration-75
+  }
+  
+  /* not ok */
+  .bg-blur-gradient {
+    @apply bg-color-dark/10 backdrop-blur-lg  bg-gradient-to-r from-color-red/30 to-color-accent/30;
+  }
+
 }
 
 .loading {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: 
-    radial-gradient(farthest-side,#2d7edd 94%,#0000) top/16px 16px no-repeat,
-    conic-gradient(#0000 30%,#2d7edd);
-  -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 16px),#000 0);
-  animation:s3 0.5s infinite linear;
+  background: radial-gradient(farthest-side, #2d7edd 94%, #0000) top/16px 16px
+      no-repeat,
+    conic-gradient(#0000 30%, #2d7edd);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 16px), #000 0);
+  animation: s3 0.5s infinite linear;
 }
 
-@keyframes s3{ 
-  100%{transform: rotate(1turn)}
+@keyframes s3 {
+  100% {
+    transform: rotate(1turn);
+  }
 }
 
 /* width */
@@ -85,5 +87,5 @@ html, body {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(45, 126, 221, .8);
+  background: rgb(45, 126, 221, 0.8);
 }

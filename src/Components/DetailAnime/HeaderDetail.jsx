@@ -17,7 +17,7 @@ const HeaderDetail = ({ api }) => {
         <Link
           href={api?.data.trailer.url}
           target="_blank"
-          className="bg-blur-red flex items-center justify-center gap-1 p-1 text-base font-semibold rounded w-3/4 md:w-1/2 lg:w-1/4"
+          className="link-blur-group px-2 py-1 rounded w-3/4 md:w-1/2 lg:w-1/4 bg-color-red hover:bg-color-red/50 transition-all duration-75 "
         >
           <YoutubeLogo className="text-lg md:text-2xl" weight="bold" />
           <p>Watch Trailer</p>

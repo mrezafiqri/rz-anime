@@ -1,4 +1,5 @@
 "use client";
+import { scrollTop } from "@/libs/utils";
 import {
   CaretDoubleLeft,
   CaretDoubleRight,
@@ -7,12 +8,6 @@ import {
 } from "@phosphor-icons/react";
 
 const Pagination = ({ page, setPage, lastPage }) => {
-  const scrollTop = () => {
-    scrollTo({
-      behavior: "smooth",
-      top: 0,
-    });
-  };
 
   const handlerPrevPage = (e) => {
     e.preventDefault();
