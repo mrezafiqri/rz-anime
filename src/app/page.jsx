@@ -2,7 +2,11 @@ import SwipeAnimeList from "@/Components/AnimeLIst";
 import Header from "@/Components/AnimeLIst/Header";
 import SkeletonJumbotroon from "@/Components/SkeletonUi/SkeletonJumbotroon";
 import SkeletonUiVertikal from "@/Components/SkeletonUi/SkeletonUiVertikal";
-import { getAnimeRespons, getNestedAnimeResponse, reproduce} from "@/libs/api_libs";
+import {
+  getAnimeRespons,
+  getNestedAnimeResponse,
+  reproduce,
+} from "@/libs/api_libs";
 import dynamic from "next/dynamic";
 
 const RecomendedAnime = dynamic(() =>
@@ -27,7 +31,7 @@ const Page = async () => {
     "recommendations/anime?sfw",
     "entry"
   );
-  recomendedAnime = reproduce(recomendedAnime, 8);
+  recomendedAnime = await reproduce(recomendedAnime, 8);
 
   return (
     <>
@@ -46,12 +50,10 @@ const Page = async () => {
         <Header title="SHOWING NOW" linkHref="/show-now" linkTitle="View All" />
         <SwipeAnimeList api={seasonsNow} detailCard={true} />
       </section>
-      {recomendedAnime.data && (
-        <section className="py-2">
-          <Header title="RECOMENDED" />
-          <RecomendedAnime api={recomendedAnime} />
-        </section>
-      )}
+      <section className="py-2">
+        <Header title="RECOMENDED" />
+        <RecomendedAnime api={recomendedAnime} />
+      </section>
     </>
   );
 };
