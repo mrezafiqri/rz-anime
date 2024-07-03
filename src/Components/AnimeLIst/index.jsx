@@ -6,20 +6,32 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { useEffect, useState } from "react";
 import { costumPaginationStyle, paramSwiper } from "@/libs/utils";
+import { useWindowSize } from "@uidotdev/usehooks";
+import SkeletonUiVertikal from "../SkeletonUi/SkeletonUiVertikal";
 import CardAnime from "./CardAnime";
 
-const SwipeAnimeList = ({ api }) => {
+const SwipeAnimeList = ({ api, detailCard }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [amount, setAmount] = useState(5);
+  const size = useWindowSize();
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 750);
-  }, []);
+    if (size.width < 768) {
+      setAmount(3);
+    } else if (size.width >= 768 && size.width < 1024) {
+      setAmount(4);
+    } else if (size.width >= 1024) {
+      setAmount(6);
+    }
+  }, [size.width, amount]);
 
-  const Loading = () => {
-    return <p className="text-color-primary h-[300px]">Loading...</p>;
-  };
+  useEffect(() => {
+    if (api.data === undefined) {
+      setIsLoading(true);
+    } else {
+      setIsLoading(false);
+    }
+  }, [api]);
 
   return (
     <Swiper
@@ -29,7 +41,9 @@ const SwipeAnimeList = ({ api }) => {
       style={costumPaginationStyle}
     >
       {isLoading ? (
-        <Loading />
+        <div className="flex flex-row gap-x-4 overflow-hidden">
+          <SkeletonUiVertikal amount={amount} detailCard={detailCard} />
+        </div>
       ) : (
         api?.data?.map((anime, index) => {
           return (

@@ -1,20 +1,33 @@
 "use client";
 import { scrollTop } from "@/libs/utils";
-import React, { Suspense, useEffect } from "react";
-const CardAnime = React.lazy(() => import("./CardAnime"));
+import { useEffect, useState } from "react";
+import CardAnime from "./CardAnime";
+import SkeletonUiVertikal from "../SkeletonUi/SkeletonUiVertikal";
 
-const AnimeList = ({ api }) => {
+const AnimeList = ({ api, amount, detailCard }) => {
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
+    if (api.data === undefined) {
+      setIsLoading(true);
+    } else {
+      setIsLoading(false);
+    }
     scrollTop();
   }, [api]);
+
   return (
-    <article className="my-4 w-full grid grid-cols-3 gap-6 justify-between md:grid-cols-5">
-      <Suspense fallback={<p className="text-color-primary">Loading...</p>}>
-        {api?.data?.map((anime, index) => {
-          return <CardAnime anime={anime} key={index} />;
-        })}
-      </Suspense>
-    </article>
+    <>
+      {isLoading ? (
+        <SkeletonUiVertikal amount={amount} detailCard={detailCard} />
+      ) : (
+        <article className="my-4 w-full grid grid-cols-3 gap-6 justify-between md:grid-cols-5">
+          {api?.data?.map((anime, index) => {
+            return <CardAnime anime={anime} key={index} />;
+          })}
+        </article>
+      )}
+    </>
   );
 };
 

@@ -88,6 +88,7 @@ const InputSearch = ({ closeHamburger }) => {
       />
       <button
         onClick={handleSearchBtn}
+        aria-label="Search Button"
         className="absolute text-color-primary top-1 end-3 hover:text-color-accent/80 transition duration-75"
       >
         <MagnifyingGlass size={28} />

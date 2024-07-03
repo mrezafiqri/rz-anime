@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.5",
+    "@uidotdev/usehooks": "^2.4.1",
     "next": "14.2.3",
+    "next-nprogress-bar": "^2.3.12",
     "react": "^18",
     "react-dom": "^18",
     "swiper": "^11.1.4"

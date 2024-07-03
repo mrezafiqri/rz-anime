@@ -2,6 +2,17 @@ import AnimeList from "@/Components/AnimeLIst/AnimeList";
 import Header from "@/Components/AnimeLIst/Header";
 import { getAnimeRespons } from "@/libs/api_libs";
 
+export const generateMetadata = async ({ params }) => {
+  const { keyword } = await params;
+  const keywordAnime = decodeURI(keyword);
+  const firstUpperCase =
+    keywordAnime[0].toUpperCase() + keywordAnime.substring(1);
+
+  return {
+    title: `Searched ${firstUpperCase}`,
+  };
+};
+
 const Page = async ({ params }) => {
   const { keyword } = await params;
   const resultAnime = await getAnimeRespons("anime", `sfw&q=${keyword}`);
@@ -28,17 +39,13 @@ const Page = async ({ params }) => {
       return (
         <>
           <Header title={`Results Found : ${changeKeyword}`} />
-          <AnimeList api={resultAnime} />
+          <AnimeList api={resultAnime} amount={25} detailCard={true} />
         </>
       );
     }
   };
 
-  return (
-    <article className="w-full px-5 grid grid-cols-1 md:px-8 2xl:container 2xl:mx-auto">
-      <ValidateResultAnime />
-    </article>
-  );
+  return <ValidateResultAnime />;
 };
 
 export default Page;

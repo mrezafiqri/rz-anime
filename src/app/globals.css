@@ -15,7 +15,7 @@ body {
   }
 
   .jbt-left-group {
-    @apply w-full py-6 px-11 grid gap-2 justify-center items-center text-color-primary sm:w-3/4 md:gap-4 md:pl-16 md:w-2/3 lg:w-2/4;
+    @apply w-full py-6 px-8 grid gap-2 justify-center items-center text-color-primary xs:px-11 sm:w-3/4 md:gap-4 md:pl-16 md:w-2/3 lg:w-2/4;
   }
 
   .jbt-card-synopsis {
@@ -88,4 +88,11 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(45, 126, 221, 0.8);
+}
+
+@media (min-width: 374px) {
+  .xs\:px-11 {
+    padding-left: 2.75rem /* 44px */;
+    padding-right: 2.75rem /* 44px */;
+  }
 }

@@ -2,9 +2,18 @@
 import { X } from "@phosphor-icons/react";
 import Image from "next/image";
 import Link from "next/link";
-import { Suspense } from "react";
+import { useEffect, useState } from "react";
+import SkeletonUiHorizontal from "../SkeletonUi/SkeletonUiHorizontal";
 
 const BoxAnime = ({ api, handlerReset }) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
+
   return (
     <>
       <div
@@ -12,8 +21,12 @@ const BoxAnime = ({ api, handlerReset }) => {
           api?.data && "border border-color-black"
         }`}
       >
-        <Suspense fallback={<p className="text-color-primary">Searching...</p>}>
-          {api.data?.map((anime, index) => {
+        {isLoading ? (
+          <section className="grid grid-cols-1">
+            <SkeletonUiHorizontal amount={5} />
+          </section>
+        ) : (
+          api.data?.map((anime, index) => {
             return (
               <Link
                 onClick={handlerReset}
@@ -28,15 +41,14 @@ const BoxAnime = ({ api, handlerReset }) => {
                   width={50}
                   height={50}
                   quality={60}
-                  loading="lazy"
                 />
                 <span className="grid justify-start items-center w-full">
                   <h1 className="line-clamp-2">{anime?.title}</h1>
                 </span>
               </Link>
             );
-          })}
-        </Suspense>
+          })
+        )}
       </div>
       {api?.data && (
         <button

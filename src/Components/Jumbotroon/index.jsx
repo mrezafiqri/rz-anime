@@ -45,21 +45,16 @@ const Jumbotroon = () => {
   };
 
   return (
-    <article className="relative rounded-3xl overflow-hidden h-[50vh] md:h-[60vh] lg:h-[85vh]">
+    <article className="relative rounded-3xl overflow-hidden h-[50vh] max-h-full md:h-[60vh] lg:h-[85vh]">
       <Image
         src={slides[currentIndex].image}
         alt={`Background ${slides[currentIndex].title}`}
         priority
-        placeholder="blur"
         quality={55}
-        sizes="70vw"
-        style={{
-          width: '100%',
-          height: '100%',
-        }}
-        className="object-cover object-center transition-all duration-500 bg-color-dark"
+        placeholder="blur"
+        className="object-cover object-center bg-color-dark w-full h-[50vh] max-h-full md:h-[60vh] lg:h-[85vh]"
       />
-      <div className="absolute top-0 left-0 right-0 z-[1] bg-gradient-to-r from-color-black  to-color-dark/0 to-100% w-full h-full flex justify-between items-center text-color-secondary group">
+      <div className="absolute top-0 left-0 right-0 z-[1] overflow-hidden bg-gradient-to-r from-color-black to-color-dark/0 to-100% w-full h-full flex justify-between items-center text-color-secondary group">
         <SideBarLeft slides={slides} currentIndex={currentIndex} />
         <ArrowHandler prevSlide={prevSlide} nextSlide={nextSlide} />
         <DotHandler
