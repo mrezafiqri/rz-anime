@@ -10,7 +10,7 @@ import {
 import dynamic from "next/dynamic";
 
 const RecomendedAnime = dynamic(() =>
-  import("../Components/AnimeLIst/RecomendedAnime")
+  import("@/Components/AnimeLIst/RecomendedAnime")
 );
 const Jumbotroon = dynamic(() => import("@/Components/Jumbotroon/index"), {
   loading: () => <SkeletonJumbotroon />,
@@ -27,11 +27,11 @@ const Page = async () => {
   );
   const topAnime = await getAnimeRespons("top/anime", "sfw&limit=14");
   const seasonsNow = await getAnimeRespons("seasons/now", "sfw&limit=14");
-  let recomendedAnime = await getNestedAnimeResponse(
+  const nestedRecomenAnimes = await getNestedAnimeResponse(
     "recommendations/anime?sfw",
     "entry"
   );
-  recomendedAnime = await reproduce(recomendedAnime, 8);
+  const recomendedAnime = reproduce(nestedRecomenAnimes, 8);
 
   return (
     <>
