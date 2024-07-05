@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import CardAnime from "./CardAnime";
 import SkeletonUiVertikal from "../SkeletonUi/SkeletonUiVertikal";
 
-const AnimeList = ({ api, amount, detailCard }) => {
+const AnimeList = ({ api, amount = null, detailCard = null }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {

@@ -16,8 +16,11 @@ const AnimeList = dynamic(() => import("@/Components/AnimeLIst/AnimeList"), {
   loading: () => <SkeletonUiVertikal amount={15} detailCard={false} />,
   ssr: false,
 });
-const RecomendedAnime = dynamic(() =>
-  import("@/Components/AnimeLIst/RecomendedAnime")
+const RecomendedAnime = dynamic(
+  () => import("@/Components/AnimeLIst/RecomendedAnime"),
+  {
+    ssr: false,
+  }
 );
 
 const Page = async () => {
@@ -40,7 +43,7 @@ const Page = async () => {
       </section>
       <section className="py-2">
         <Header title="UPCOMING" />
-        <AnimeList api={comingUpAnime} />
+        <AnimeList api={comingUpAnime} amount detailCard />
       </section>
       <section className="py-2">
         <Header title="POPULER" linkHref="/populer" linkTitle="View All" />

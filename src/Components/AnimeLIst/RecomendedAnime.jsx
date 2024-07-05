@@ -18,7 +18,7 @@ const RecomendedAnime = ({ api }) => {
       {isLoading ? (
         <SkeletonUiHorizontal amount={8} />
       ) : (
-        api?.data?.map((anime, index) => {
+        api.data?.map((anime, index) => {
           return (
             <Link
               href={`/anime/${anime?.mal_id}`}
