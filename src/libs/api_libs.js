@@ -1,11 +1,11 @@
-export const getAnimeRespons = async (resource, query) => {
+export const getAnimeResponse = async (resource, query) => {
   let response;
   let anime;
 
   for (let attemp = 1; attemp <= 5; attemp++) {
     try {
       response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URLL}/${resource}?${query}`
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/${resource}?${query}`
       );
 
       if (response.status === 404) {
@@ -40,7 +40,7 @@ export const getAnimeRespons = async (resource, query) => {
 };
 
 export const getNestedAnimeResponse = async (resource, objectProperty) => {
-  const response = await getAnimeRespons(resource);
+  const response = await getAnimeResponse(resource);
   const data = await response.data?.flatMap((item) => item[objectProperty]);
   return data;
 };
@@ -70,7 +70,7 @@ export const getFilteredAnime = async (
   objectProperty,
   targetValue
 ) => {
-  const filterAnime = await getAnimeRespons(resource);
+  const filterAnime = await getAnimeResponse(resource);
   const response = await filterAnime.data?.filter(
     (anime) => anime[objectProperty] === targetValue
   );

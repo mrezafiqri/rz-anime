@@ -1,6 +1,6 @@
 import AnimeList from "@/Components/AnimeLIst/AnimeList";
 import Header from "@/Components/AnimeLIst/Header";
-import { getAnimeRespons } from "@/libs/api_libs";
+import { getAnimeResponse } from "@/libs/api_libs";
 
 export const generateMetadata = async ({ params }) => {
   const { keyword } = await params;
@@ -15,7 +15,7 @@ export const generateMetadata = async ({ params }) => {
 
 const Page = async ({ params }) => {
   const { keyword } = await params;
-  const resultAnime = await getAnimeRespons("anime", `sfw&q=${keyword}`);
+  const resultAnime = await getAnimeResponse("anime", `sfw&q=${keyword}`);
   const changeKeyword = decodeURI(keyword);
 
   const ValidateResultAnime = () => {

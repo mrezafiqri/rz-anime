@@ -3,7 +3,8 @@
 import AnimeList from "@/Components/AnimeLIst/AnimeList";
 import Header from "@/Components/AnimeLIst/Header";
 import Pagination from "@/Components/Utilities/Pagination";
-import { getAnimeRespons } from "@/libs/api_libs";
+import { getAnimeResponse } from "@/libs/api_libs";
+
 import { useEffect, useState } from "react";
 
 const GenreList = ({ id }) => {
@@ -13,7 +14,7 @@ const GenreList = ({ id }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const anime = await getAnimeRespons(
+      const anime = await getAnimeResponse(
         "anime",
         `sfw&genres=${id}&page=${page}`
       );

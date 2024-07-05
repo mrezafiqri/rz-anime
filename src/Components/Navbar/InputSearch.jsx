@@ -1,10 +1,10 @@
 "use client";
 
-import { getAnimeRespons } from "@/libs/api_libs";
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import BoxAnime from "./BoxAnime";
+import { getAnimeResponse } from "@/libs/api_libs";
 
 const InputSearch = ({ closeHamburger }) => {
   const searchRef = useRef();
@@ -16,7 +16,7 @@ const InputSearch = ({ closeHamburger }) => {
     const fetchData = async () => {
       try {
         if (query !== "") {
-          const response = await getAnimeRespons(
+          const response = await getAnimeResponse(
             "anime",
             `sfw&q=${query}&limit=5`
           );

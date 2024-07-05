@@ -3,7 +3,7 @@ import Header from "@/Components/AnimeLIst/Header";
 import SkeletonJumbotroon from "@/Components/SkeletonUi/SkeletonJumbotroon";
 import SkeletonUiVertikal from "@/Components/SkeletonUi/SkeletonUiVertikal";
 import {
-  getAnimeRespons,
+  getAnimeResponse,
   getNestedAnimeResponse,
   reproduce,
 } from "@/libs/api_libs";
@@ -13,8 +13,7 @@ const Jumbotroon = dynamic(() => import("@/Components/Jumbotroon/index"), {
   loading: () => <SkeletonJumbotroon />,
 });
 const AnimeList = dynamic(() => import("@/Components/AnimeLIst/AnimeList"), {
-  loading: () => <SkeletonUiVertikal amount={15} detailCard={false} />,
-  ssr: false,
+  loading: () => <SkeletonUiVertikal amount={15} detailCard={false} />
 });
 const RecomendedAnime = dynamic(
   () => import("@/Components/AnimeLIst/RecomendedAnime"),
@@ -24,17 +23,16 @@ const RecomendedAnime = dynamic(
 );
 
 const Page = async () => {
-  const comingUpAnime = await getAnimeRespons(
-    "seasons/upcoming",
-    "sfw&limit=15"
-  );
-  const topAnime = await getAnimeRespons("top/anime", "sfw&limit=14");
-  const seasonsNow = await getAnimeRespons("seasons/now", "sfw&limit=14");
-  const nestedRecomenAnimes = await getNestedAnimeResponse(
-    "recommendations/anime?sfw",
-    "entry"
-  );
-  const recomendedAnime = reproduce(nestedRecomenAnimes, 8);
+  const comingUpAnime = await getAnimeResponse("seasons/upcoming", "sfw&limit=15");
+  const topAnime = await getAnimeResponse("top/anime", "sfw&limit=14");
+  const seasonsNow = await getAnimeResponse("seasons/now", "sfw&limit=14");
+  // const nestedRecomenAnimes = await getNestedAnimeResponse(
+  //   "recommendations/anime?sfw",
+  //   "entry"
+  // );
+  // const recomendedAnime = reproduce(nestedRecomenAnimes, 8);
+
+  console.log(comingUpAnime);
 
   return (
     <>
@@ -53,10 +51,10 @@ const Page = async () => {
         <Header title="SHOWING NOW" linkHref="/show-now" linkTitle="View All" />
         <SwipeAnimeList api={seasonsNow} detailCard={true} />
       </section>
-      <section className="py-2">
+      {/* <section className="py-2">
         <Header title="RECOMENDED" />
         <RecomendedAnime api={recomendedAnime} />
-      </section>
+      </section> */}
     </>
   );
 };

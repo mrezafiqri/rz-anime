@@ -1,6 +1,7 @@
 import DetailAnime from "@/Components/DetailAnime";
 import {
-  getAnimeRespons,
+  
+  getAnimeResponse,
   getFilteredAnime,
   getObjectNestedAnime,
 } from "@/libs/api_libs";
@@ -10,7 +11,7 @@ export const metadata = {
 };
 
 const Page = async ({ params: { id } }) => {
-  const anime = await getAnimeRespons(`anime/${id}`);
+  const anime = await getAnimeResponse(`anime/${id}`);
   const airedAnime = await getObjectNestedAnime(anime.data?.aired.prop.from);
   const characterAnime = await getFilteredAnime(
     `anime/${id}/characters`,

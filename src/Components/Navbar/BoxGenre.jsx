@@ -1,5 +1,5 @@
 "use client";
-import { getAnimeRespons } from "@/libs/api_libs";
+import { getAnimeResponse } from "@/libs/api_libs";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -8,7 +8,7 @@ const BoxGenre = ({ setIsBoxGenreActive, closeHamburger }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const getGenres = await getAnimeRespons("genres/anime", "filter=genres");
+      const getGenres = await getAnimeResponse("genres/anime", "filter=genres");
       setGenreAnimes(getGenres);
     };
     fetchData();

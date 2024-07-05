@@ -5,7 +5,8 @@ import Header from "@/Components/AnimeLIst/Header";
 import NotFoundType from "@/Components/Utilities/NotFoundType";
 import Pagination from "@/Components/Utilities/Pagination";
 import TypeAnime from "@/Components/Utilities/TypeAnime";
-import { getAnimeRespons } from "@/libs/api_libs";
+import { getAnimeResponse } from "@/libs/api_libs";
+
 import { FILTER_TYPE_ANIME } from "@/libs/utils";
 import { useEffect, useState } from "react";
 
@@ -21,8 +22,8 @@ const PopulerAnimeList = () => {
     const fetchData = async () => {
       const populerAnime =
         typeAnime === "all" || initialType === "all"
-          ? await getAnimeRespons("top/anime", `sfw&page=${page}`)
-          : await getAnimeRespons(
+          ? await getAnimeResponse("top/anime", `sfw&page=${page}`)
+          : await getAnimeResponse(
               "top/anime",
               `sfw&page=${page}&type=${typeAnime}`
             );
