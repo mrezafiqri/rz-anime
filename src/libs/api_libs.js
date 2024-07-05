@@ -5,7 +5,7 @@ export const getAnimeRespons = async (resource, query) => {
   for (let attemp = 1; attemp <= 5; attemp++) {
     try {
       response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL}/${resource}?${query}`
+        `${process.env.NEXT_PUBLIC_API_BASE_URLL}/${resource}?${query}`
       );
 
       if (response.status === 404) {
@@ -16,6 +16,13 @@ export const getAnimeRespons = async (resource, query) => {
       if (response.ok) {
         anime = await response.json();
         break;
+      } else if (response.status === 429) {
+        // Delay meningkat secara eksponensial
+        const delay = Math.min(5000, 1000 * Math.pow(2, attemp - 1)); 
+
+        console.warn(`API rate limit reached. Retrying in ${delay}ms...`);
+
+        await new Promise((resolve) => setTimeout(resolve, delay));
       } else {
         throw new Error(
           `Fetch Api request failed with status ${response.status}`
