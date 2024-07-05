@@ -1,25 +1,52 @@
 export const getAnimeRespons = async (resource, query) => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/${resource}?${query}`
-  );
-  const anime = response.json();
+  let response;
+  let anime;
+
+  for (let attemp = 1; attemp <= 5; attemp++) {
+    try {
+      response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/${resource}?${query}`
+      );
+
+      if (response.status === 404) {
+        anime = await response.json();
+        break;
+      }
+
+      if (response.ok) {
+        anime = await response.json();
+        break;
+      } else {
+        throw new Error(
+          `Fetch Api request failed with status ${response.status}`
+        );
+      }
+    } catch (error) {
+      console.log(`Api request failed ${error.message}`);
+    }
+  }
+
+  if (!anime) {
+    throw new Error("Failed to fetch data after 5 attempts...");
+  }
   return anime;
 };
 
 export const getNestedAnimeResponse = async (resource, objectProperty) => {
   const response = await getAnimeRespons(resource);
-  return response.data?.flatMap((item) => item[objectProperty]);
+  const data = await response.data?.flatMap((item) => item[objectProperty]);
+  return data;
 };
 
 export const reproduce = (responData, gapNumber) => {
-  const firstNumber = ~~(Math.random() * (responData?.length - gapNumber) + 1);
+  const firstNumber = ~~(Math.random() * (responData.length - gapNumber) + 1);
   const lastNumber = firstNumber + gapNumber;
 
-  const replaceroPertyAnime = {
-    data: responData?.slice(firstNumber, lastNumber),
+  const replacePropertyAnime = {
+    data: responData.slice(firstNumber, lastNumber),
   };
 
-  return replaceroPertyAnime;
+  return replacePropertyAnime;
 };
 
 export const getObjectNestedAnime = async (objectAnime) => {

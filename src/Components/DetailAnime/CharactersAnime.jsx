@@ -7,16 +7,18 @@ const CharactersAnime = ({ resultCharacter }) => {
         return (
           <div
             key={index}
-            className="flex gap-2 items-center bg-blur-hover rounded-md overflow-hidden"
+            className="flex gap-x-2 items-center bg-blur-hover rounded-md overflow-hidden"
           >
-            <Image
-              className="object-cover object-center bg-color-secondary w-auto h-auto"
-              src={chcAnime?.character?.images.webp.image_url}
-              alt={`Image ${chcAnime?.character?.name}`}
-              width={40}
-              height={40}
-              loading="lazy"
-            />
+            <div className="h-[75px] w-[48px] bg-color-secondary/30">
+              <Image
+                className="object-cover object-center bg-color-secondary/30 w-auto h-auto"
+                src={chcAnime?.character?.images.webp.image_url}
+                alt={`Image ${chcAnime?.character?.name}`}
+                width={40}
+                height={40}
+                loading="lazy"
+              />
+            </div>
             <span className="grid items-center">
               <h1 className="text-color-primary text-wrap font-semibold line-clamp-2 text-sm md:text-base">
                 {chcAnime?.character?.name}

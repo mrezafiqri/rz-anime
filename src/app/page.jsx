@@ -9,9 +9,6 @@ import {
 } from "@/libs/api_libs";
 import dynamic from "next/dynamic";
 
-const RecomendedAnime = dynamic(() =>
-  import("@/Components/AnimeLIst/RecomendedAnime")
-);
 const Jumbotroon = dynamic(() => import("@/Components/Jumbotroon/index"), {
   loading: () => <SkeletonJumbotroon />,
 });
@@ -19,6 +16,9 @@ const AnimeList = dynamic(() => import("@/Components/AnimeLIst/AnimeList"), {
   loading: () => <SkeletonUiVertikal amount={15} detailCard={false} />,
   ssr: false,
 });
+const RecomendedAnime = dynamic(() =>
+  import("@/Components/AnimeLIst/RecomendedAnime")
+);
 
 const Page = async () => {
   const comingUpAnime = await getAnimeRespons(
