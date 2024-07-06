@@ -9,33 +9,25 @@ export const getAnimeResponse = async (resource, query) => {
       );
 
       if (response.status === 404) {
-        anime = await response.json();
+        anime = response.json();
         break;
       }
 
       if (response.ok) {
-        anime = await response.json();
+        anime = response.json();
         break;
-      } else if (response.status === 429) {
-        // Delay meningkat secara eksponensial
-        const delay = Math.min(5000, 1000 * Math.pow(2, attemp - 1)); 
-
-        console.warn(`API rate limit reached. Retrying in ${delay}ms...`);
-
-        await new Promise((resolve) => setTimeout(resolve, delay));
       } else {
-        throw new Error(
-          `Fetch Api request failed with status ${response.status}`
-        );
+        throw new Error(`API request failed with status ${response.status}, attemp: ${attemp}`);
       }
     } catch (error) {
-      console.log(`Api request failed ${error.message}`);
+      console.error(`API request failed: ${error.message}`);
     }
   }
 
   if (!anime) {
-    throw new Error("Failed to fetch data after 5 attempts...");
+    throw new Error("Api request failed after 5 attempt...");
   }
+
   return anime;
 };
 

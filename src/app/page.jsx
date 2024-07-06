@@ -26,13 +26,11 @@ const Page = async () => {
   const comingUpAnime = await getAnimeResponse("seasons/upcoming", "sfw&limit=15");
   const topAnime = await getAnimeResponse("top/anime", "sfw&limit=14");
   const seasonsNow = await getAnimeResponse("seasons/now", "sfw&limit=14");
-  // const nestedRecomenAnimes = await getNestedAnimeResponse(
-  //   "recommendations/anime?sfw",
-  //   "entry"
-  // );
-  // const recomendedAnime = reproduce(nestedRecomenAnimes, 8);
-
-  console.log(comingUpAnime);
+  const nestedRecomendedAnime = await getNestedAnimeResponse(
+    "recommendations/anime?sfw",
+    "entry"
+  );
+  const recomendedAnime = reproduce(nestedRecomendedAnime, 8);
 
   return (
     <>
@@ -51,10 +49,10 @@ const Page = async () => {
         <Header title="SHOWING NOW" linkHref="/show-now" linkTitle="View All" />
         <SwipeAnimeList api={seasonsNow} detailCard={true} />
       </section>
-      {/* <section className="py-2">
+      <section className="py-2">
         <Header title="RECOMENDED" />
         <RecomendedAnime api={recomendedAnime} />
-      </section> */}
+      </section>
     </>
   );
 };
