@@ -3,8 +3,9 @@
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import BoxAnime from "./BoxAnime";
+
 import { getAnimeResponse } from "@/libs/api_libs";
+import BoxAnimeList from "./BoxAnimeList";
 
 const InputSearch = ({ closeHamburger }) => {
   const searchRef = useRef();
@@ -94,7 +95,7 @@ const InputSearch = ({ closeHamburger }) => {
         <MagnifyingGlass size={28} />
       </button>
       {boxAnime?.length !== 0 ? (
-        <BoxAnime api={boxAnime} handlerReset={handlerReset} />
+        <BoxAnimeList api={boxAnime} handlerReset={handlerReset} query={query} />
       ) : null}
     </div>
   );
