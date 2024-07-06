@@ -9,12 +9,12 @@ export const getAnimeResponse = async (resource, query) => {
       );
 
       if (response.status === 404) {
-        anime = response.json();
+        anime = await response.json();
         break;
       }
 
-      if (response.ok) {
-        anime = response.json();
+      if (response.ok || response.status === 200) {
+        anime = await response.json();
         break;
       } else {
         throw new Error(`API request failed with status ${response.status}, attemp: ${attemp}`);
