@@ -2,7 +2,7 @@ export const getAnimeResponse = async (resource, query) => {
   let response;
   let anime;
 
-  for (let attemp = 1; attemp <= 5; attemp++) {
+  for (let attemp = 1; attemp <= 10; attemp++) {
     try {
       response = await fetch(
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/${resource}?${query}`
