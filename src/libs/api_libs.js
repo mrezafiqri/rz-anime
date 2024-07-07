@@ -9,12 +9,12 @@ export const getAnimeResponse = async (resource, query) => {
       );
 
       if (response.status === 404) {
-        anime = await response.json();
+        anime = response.json();
         break;
       }
 
       if (response.ok) {
-        anime = await response.json();
+        anime = response.json();
         break;
       } else if (response.status === 429) {
         const delay = Math.min(5000, 1000 * Math.pow(2, attemp - 1));
