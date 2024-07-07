@@ -13,11 +13,19 @@ export const getAnimeResponse = async (resource, query) => {
         break;
       }
 
-      if (response.ok || response.status === 200) {
+      if (response.ok) {
         anime = await response.json();
         break;
+      } else if (response.status === 429) {
+        const delay = Math.min(10000, 1000 * Math.pow(2, attemp - 1));
+
+        console.warn(`API rate limit reached. Retrying in ${delay}ms...`);
+
+        await new Promise((resolve) => setTimeout(resolve, delay));
       } else {
-        throw new Error(`API request failed with status ${response.status}, attemp: ${attemp}`);
+        throw new Error(
+          `API request failed with status ${response.status}, attemp: ${attemp}`
+        );
       }
     } catch (error) {
       console.error(`API request failed: ${error.message}`);
@@ -25,7 +33,7 @@ export const getAnimeResponse = async (resource, query) => {
   }
 
   if (!anime) {
-    throw new Error("Api request failed after 5 attempt...");
+    throw new Error("Api request failed after 10 attempt...");
   }
 
   return anime;

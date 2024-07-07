@@ -1,6 +1,6 @@
 import DetailAnime from "@/Components/DetailAnime";
+import NavDetail from "@/Components/DetailAnime/NavDetail";
 import {
-  
   getAnimeResponse,
   getFilteredAnime,
   getObjectNestedAnime,
@@ -21,6 +21,7 @@ const Page = async ({ params: { id } }) => {
 
   return (
     <>
+      <NavDetail />
       <DetailAnime
         api={anime}
         airedAnime={airedAnime}
