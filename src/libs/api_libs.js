@@ -2,26 +2,20 @@ export const getAnimeResponse = async (resource, query) => {
   let response;
   let anime;
 
-  for (let attemp = 1; attemp <= 10; attemp++) {
+  for (let attemp = 1; attemp <= 5; attemp++) {
     try {
       response = await fetch(
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/${resource}?${query}`
       );
 
       if (response.status === 404) {
-        anime = await response.json();
+        anime = response.json();
         break;
       }
 
-      if (response.ok) {
-        anime = await response.json();
+      if (response.ok || response.status === 200) {
+        anime = response.json();
         break;
-      } else if (response.status === 429) {
-        const delay = Math.min(5000, 1000 * Math.pow(2, attemp - 1));
-
-        console.warn(`API rate limit reached. Retrying in ${delay}ms...`);
-
-        await new Promise((resolve) => setTimeout(resolve, delay));
       } else {
         throw new Error(
           `API request failed with status ${response.status}, attemp: ${attemp}`
@@ -33,7 +27,7 @@ export const getAnimeResponse = async (resource, query) => {
   }
 
   if (!anime) {
-    throw new Error("Api request failed after 10 attempt...");
+    throw new Error("Api request failed after 5 attempt...");
   }
 
   return anime;
