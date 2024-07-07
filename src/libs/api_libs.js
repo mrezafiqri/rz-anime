@@ -17,7 +17,7 @@ export const getAnimeResponse = async (resource, query) => {
         anime = await response.json();
         break;
       } else if (response.status === 429) {
-        const delay = Math.min(10000, 1000 * Math.pow(2, attemp - 1));
+        const delay = Math.min(5000, 1000 * Math.pow(2, attemp - 1));
 
         console.warn(`API rate limit reached. Retrying in ${delay}ms...`);
 
