@@ -2,6 +2,7 @@
 
 import AnimeList from "@/Components/AnimeLIst/AnimeList";
 import Header from "@/Components/AnimeLIst/Header";
+import Footer from "@/Components/Footer";
 import Pagination from "@/Components/Utilities/Pagination";
 import { getAnimeResponse } from "@/libs/api_libs";
 
@@ -37,6 +38,7 @@ const GenreList = ({ id }) => {
         setPage={setPage}
         lastPage={animeList.pagination?.last_visible_page}
       />
+      <Footer />
     </>
   );
 };

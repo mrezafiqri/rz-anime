@@ -45,16 +45,14 @@ const SwipeAnimeList = ({ api, detailCard }) => {
           <SkeletonUiVertikal amount={amount} detailCard={detailCard} />
         </div>
       ) : (
-        api?.data?.map((anime, index) => {
-          return (
-            <SwiperSlide
-              key={index}
-              className="min-w-24 md:min-w-40 lg:min-w-44 pb-6"
-            >
-              <CardAnime anime={anime} />
-            </SwiperSlide>
-          );
-        })
+        api?.data?.map((anime, index) => (
+          <SwiperSlide
+            key={index}
+            className="min-w-24 md:min-w-40 lg:min-w-44 pb-6"
+          >
+            <CardAnime anime={anime} />
+          </SwiperSlide>
+        ))
       )}
     </Swiper>
   );

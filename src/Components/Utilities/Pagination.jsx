@@ -9,7 +9,7 @@ import {
 
 const Pagination = ({ page, setPage, lastPage }) => {
   return (
-    <div className="flex items-center justify-between border-t border-color-primary/20 py-3">
+    <div className="flex items-center justify-between border-y border-color-primary/20 py-2">
       <div className="flex flex-1 gap-2 justify-center items-center">
         <button
           onClick={() => setPage(1)}

@@ -2,6 +2,7 @@
 
 import AnimeList from "@/Components/AnimeLIst/AnimeList";
 import Header from "@/Components/AnimeLIst/Header";
+import Footer from "@/Components/Footer";
 import NotFoundType from "@/Components/Utilities/NotFoundType";
 import Pagination from "@/Components/Utilities/Pagination";
 import TypeAnime from "@/Components/Utilities/TypeAnime";
@@ -51,6 +52,7 @@ const ShowingNowAnimeList = () => {
               setPage={setPage}
               lastPage={animeList.pagination?.last_visible_page}
             />
+            <Footer />
           </>
         ) : (
           <NotFoundType animePage={"Showing Now"} typeText={headerTitle} />

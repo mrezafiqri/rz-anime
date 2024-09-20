@@ -1,5 +1,6 @@
 import SwipeAnimeList from "@/Components/AnimeLIst";
 import Header from "@/Components/AnimeLIst/Header";
+import Footer from "@/Components/Footer";
 import SkeletonJumbotroon from "@/Components/SkeletonUi/SkeletonJumbotroon";
 import SkeletonUiVertikal from "@/Components/SkeletonUi/SkeletonUiVertikal";
 import {
@@ -52,6 +53,9 @@ const Page = async () => {
       <section className="py-2">
         <Header title="RECOMENDED" />
         <RecomendedAnime api={recomendedAnime} />
+      </section>
+      <section>
+        <Footer/>
       </section>
     </>
   );

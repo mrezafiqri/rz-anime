@@ -14,7 +14,7 @@ const RecomendedAnime = ({ api }) => {
   }, []);
 
   return (
-    <article className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-between items-center gap-4 mb-8">
+    <article className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-between items-center gap-4">
       {isLoading ? (
         <SkeletonUiHorizontal amount={8} />
       ) : (

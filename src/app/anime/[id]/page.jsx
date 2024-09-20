@@ -1,5 +1,6 @@
 import DetailAnime from "@/Components/DetailAnime";
 import NavDetail from "@/Components/DetailAnime/NavDetail";
+import Footer from "@/Components/Footer";
 import {
   getAnimeResponse,
   getFilteredAnime,
@@ -27,6 +28,9 @@ const Page = async ({ params: { id } }) => {
         airedAnime={airedAnime}
         resultCharacter={characterAnime}
       />
+      <section className="hidden md:inline-block">
+        <Footer />
+      </section>
     </>
   );
 };

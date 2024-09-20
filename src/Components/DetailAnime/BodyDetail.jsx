@@ -3,6 +3,7 @@
 import { CaretDown, CaretUp, Star } from "@phosphor-icons/react";
 import CharactersAnime from "./CharactersAnime";
 import TextItem from "./TextItem";
+import Footer from "../Footer";
 
 const BodyDetail = ({ detailAnime }) => {
   const paramDetails = { ...detailAnime };
@@ -71,6 +72,9 @@ const BodyDetail = ({ detailAnime }) => {
           <CharactersAnime resultCharacter={paramDetails.resultCharacter} />
         </span>
       )}
+      <div className="md:hidden">
+        <Footer />
+      </div>
     </article>
   );
 };
