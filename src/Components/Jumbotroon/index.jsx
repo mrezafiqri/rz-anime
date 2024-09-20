@@ -23,7 +23,7 @@ const Jumbotroon = () => {
         }
         return prevIndex + 1;
       });
-    }, 5000);
+    }, 8000);
 
     return () => clearInterval(intervalMalId);
   }, [mal_id]);
