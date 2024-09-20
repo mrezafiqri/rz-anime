@@ -2,19 +2,19 @@ export const getAnimeResponse = async (resource, query) => {
   let response;
   let anime;
 
-  for (let attemp = 1; attemp <= 6; attemp++) {
+  for (let attemp = 1; attemp <= 5; attemp++) {
     try {
       response = await fetch(
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/${resource}?${query}`
       );
 
       if (response.status === 404) {
-        anime = await response.json();
+        anime = response.json();
         break;
       }
 
       if (response.ok || response.status === 200) {
-        anime = await response.json();
+        anime = response.json();
         break;
       } else {
         throw new Error(
