@@ -12,11 +12,9 @@ import dynamic from "next/dynamic";
 
 const Jumbotroon = dynamic(() => import("@/Components/Jumbotroon/index"), {
   loading: () => <SkeletonJumbotroon />,
-  ssr: false,
 });
 const AnimeList = dynamic(() => import("@/Components/AnimeLIst/AnimeList"), {
   loading: () => <SkeletonUiVertikal amount={15} detailCard={false} />,
-  ssr: false,
 });
 const RecomendedAnime = dynamic(
   () => import("@/Components/AnimeLIst/RecomendedAnime"),
@@ -26,7 +24,10 @@ const RecomendedAnime = dynamic(
 );
 
 const Page = async () => {
-  const comingUpAnime = await getAnimeResponse("seasons/upcoming", "sfw&limit=15");
+  const comingUpAnime = await getAnimeResponse(
+    "seasons/upcoming",
+    "sfw&limit=15"
+  );
   const topAnime = await getAnimeResponse("top/anime", "sfw&limit=14");
   const seasonsNow = await getAnimeResponse("seasons/now", "sfw&limit=14");
   const nestedRecomendedAnime = await getNestedAnimeResponse(
@@ -57,7 +58,7 @@ const Page = async () => {
         <RecomendedAnime api={recomendedAnime} />
       </section>
       <section>
-        <Footer/>
+        <Footer />
       </section>
     </>
   );
